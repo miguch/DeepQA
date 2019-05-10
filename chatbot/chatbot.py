@@ -128,11 +128,11 @@ class Chatbot:
 
         # Training options
         trainingArgs = parser.add_argument_group('Training options')
-        trainingArgs.add_argument('--numEpochs', type=int, default=30, help='maximum number of epochs to run')
+        trainingArgs.add_argument('--numEpochs', type=int, default=200, help='maximum number of epochs to run')
         trainingArgs.add_argument('--saveEvery', type=int, default=2000, help='nb of mini-batch step before creating a model checkpoint')
         trainingArgs.add_argument('--batchSize', type=int, default=256, help='mini-batch size')
         trainingArgs.add_argument('--learningRate', type=float, default=0.002, help='Learning rate')
-        trainingArgs.add_argument('--dropout', type=float, default=0.9, help='Dropout rate (keep probabilities)')
+        trainingArgs.add_argument('--dropout', type=float, default=0.8, help='Dropout rate (keep probabilities)')
 
         return parser.parse_args(args)
 
