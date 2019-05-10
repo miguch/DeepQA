@@ -26,6 +26,7 @@ import os  # Checking file existance
 import random
 import string
 import collections
+import jieba
 
 from chatbot.corpus.cornelldata import CornellData
 from chatbot.corpus.opensubsdata import OpensubsData
@@ -470,7 +471,8 @@ class TextData:
 
         # We add sentence by sentence until we reach the maximum length
         for i in range(len(sentencesToken)):
-            tokens = nltk.word_tokenize(sentencesToken[i])
+#             tokens = nltk.word_tokenize(sentencesToken[i])
+            tokens = list(jieba.cut(sentencesToken[i]))
 
             tempWords = []
             for token in tokens:
@@ -588,7 +590,8 @@ class TextData:
             return None
 
         # First step: Divide the sentence in token
-        tokens = nltk.word_tokenize(sentence)
+#         tokens = nltk.word_tokenize(sentencesToken[i])
+        tokens = list(jieba.cut(sentencesToken[i]))
         if len(tokens) > self.args.maxLength:
             return None
 
